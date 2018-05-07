@@ -76,31 +76,31 @@ public class MainActivity extends AppCompatActivity {
 
 
         /*add progress in notification*/
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                int index;
-                for (index = 0; index < 100; index+=10){
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                int index;
+//                for (index = 0; index < 100; index+=10){
+//
+//                    // Animation until finished with increasing progress
+//                    builder.setProgress(100,index, false);
+//                    // Animation until finished without increasing progress
+//                    builder.setProgress(0,0, true);
+//                    notificationManager.notify(0, builder.build());
+//                    try {
+//                        Thread.sleep(500);
+//                    } catch (InterruptedException e) {
+//                        Log.i("TAG", "sleep failure");
+//                    }
+//                }
+//                builder.setContentText("Finished!").setProgress(0, 0, false);
+//                notificationManager.notify(notificationID, builder.build());
+//            }
+//        }).start();
 
-                    // Animation until finished with increasing progress
-                    builder.setProgress(100,index, false);
-                    // Animation until finished without increasing progress
-                    builder.setProgress(0,0, true);
-                    notificationManager.notify(0, builder.build());
-                    try {
-                        Thread.sleep(500);
-                    } catch (InterruptedException e) {
-                        Log.i("TAG", "sleep failure");
-                    }
-                }
-                builder.setContentText("Finished!").setProgress(0, 0, false);
-                notificationManager.notify(notificationID, builder.build());
-            }
-        }).start();
 
 
-
-//        notificationManager.notify(notificationID++, notification);
+        notificationManager.notify(notificationID++, notification);
 
     }
 
