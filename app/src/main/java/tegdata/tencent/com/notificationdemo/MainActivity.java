@@ -26,25 +26,30 @@ public class MainActivity extends AppCompatActivity {
 
     public void createNotification(View v) {
         final NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
-                .setContentTitle("Fuck Notification")
-                .setContentText("This is my first Android Notification")
-                .setSmallIcon(R.drawable.ic_launcher_background)
-                .setWhen(System.currentTimeMillis() + 3600000)
-                .setOngoing(true)
-                .setTicker("this is state text")
-                .setSubText("this is sub")
+//                .setContentTitle("Fuck Notification")
+//                .setContentText("This is my first Android Notification")
+                .setSmallIcon(R.mipmap.ic_launcher) // this is required for notification in the status bar
+//                .setWhen(System.currentTimeMillis() + 3600000)
+//                .setOngoing(true)
+//                .setTicker("this is state text")
+//                .setSubText("this is sub")
                 .setDefaults(NotificationCompat.DEFAULT_SOUND)
                 .setVibrate(new long[]{0, 1000, 1000});
 
+        RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.notitication_message);
+        remoteViews.setTextViewText(R.id.message_title, "This is Custom View");
+        builder.setContent(remoteViews);
 
-        NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
-        String events[] = {"a","b","c","d","e","f","g"};
-        inboxStyle.setBigContentTitle("XXXXXXXX");
-        for (int i = 0; i < events.length; i++){
-            inboxStyle.addLine(events[i]);
-        }
 
-        builder.setStyle(inboxStyle);
+
+//        NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
+//        String events[] = {"a","b","c","d","e","f","g"};
+//        inboxStyle.setBigContentTitle("XXXXXXXX");
+//        for (int i = 0; i < events.length; i++){
+//            inboxStyle.addLine(events[i]);
+//        }
+//
+//        builder.setStyle(inboxStyle);
 
         // open the activity and then you can back to main activity
 //        Intent resultIntent = new Intent(this, ResultActivity.class);
@@ -97,6 +102,8 @@ public class MainActivity extends AppCompatActivity {
 //                notificationManager.notify(notificationID, builder.build());
 //            }
 //        }).start();
+
+
 
 
 
